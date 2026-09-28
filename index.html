@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ZIVARA | Online Fashion Store</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#fff8fb;color:#333}
+header{background:#7b1e4b;color:white;text-align:center;padding:30px 15px}
+header h1{margin:0;font-size:42px}
+nav{background:white;padding:15px;text-align:center;box-shadow:0 2px 8px #ddd}
+nav a{color:#7b1e4b;text-decoration:none;font-weight:bold;margin:0 7px}
+.hero{text-align:center;padding:30px 15px}
+.hero h2{color:#7b1e4b}
+.products{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;padding:15px}
+.product-card{width:310px;background:white;padding:15px;border-radius:18px;box-shadow:0 4px 16px #ddd}
+.gallery{display:flex;overflow-x:auto;gap:10px}
+.gallery img{width:260px;height:340px;object-fit:cover;flex-shrink:0;border-radius:14px}
+.product-card h3{color:#7b1e4b}
+.price{font-size:22px;font-weight:bold}
+.online-price{color:#16803c;font-size:20px;font-weight:bold}
+.info{background:#fff0f5;padding:10px;border-radius:10px;font-size:14px}
+button{border:0;border-radius:25px;padding:12px 18px;cursor:pointer}
+.order-btn{width:100%;margin-top:7px;color:white}
+.cod{background:#7b1e4b}
+.online{background:#16803c}
+.admin-btn{background:#222;color:white;margin:10px}
+.admin-panel,.form-box{display:none;max-width:500px;margin:20px auto;background:white;padding:20px;border-radius:15px;box-shadow:0 4px 15px #ddd}
+.admin-panel input,.admin-panel textarea,.form-box input,.form-box textarea,.form-box select{width:100%;padding:12px;margin:7px 0;border:1px solid #ddd;border-radius:8px}
+.admin-panel button,.form-box button{background:#7b1e4b;color:white;margin-top:8px}
+.delete-btn{background:#b00020!important}
+.policy{background:white;margin:25px 15px;padding:20px;border-radius:15px;text-align:center}
+footer{background:#7b1e4b;color:white;text-align:center;padding:30px 15px;margin-top:30px}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>✨ ZIVARA ✨</h1>
+<p>Lehenga • Chunari • Ladies Collection</p>
+</header>
+
+<nav>
+<a href="#">Home</a>
+<a href="#collection">Collection</a>
+<a href="#policy">Return Policy</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+<h2>Welcome to ZIVARA</h2>
+<p>Premium Ethnic Wear & Latest Fashion Collection</p>
+<button class="admin-btn" onclick="adminLogin()">🔐 Admin / Add Product</button>
+</section>
+
+<div class="admin-panel" id="adminPanel">
+
+<h2>➕ Add New Product</h2>
+
+<input id="pName" placeholder="Product Name">
+<input id="pPrice" type="number" placeholder="Product Price">
+
+<textarea id="pDescription" placeholder="Product Description"></textarea>
+
+<input id="pSizes" placeholder="Sizes e.g. M, L, XL, XXL">
+
+<input id="pImage" placeholder="Direct Image URL">
+
+<button onclick="addProduct()">➕ Add Product</button>
+
+<h3>Delete Added Product</h3>
+<div id="adminProducts"></div>
+
+</div>
+
+<h2 id="collection" style="text-align:center;color:#7b1e4b">
+Our Collection
+</h2>
+
+<div class="products" id="productContainer">
+
+<!-- PRODUCT 1 -->
+
+<div class="product-card">
+
+<div class="gallery">
+
+<img src="https://i.ibb.co/7ts39z9P/IMG-20260927-160155-861.jpg">
+<img src="https://i.ibb.co/6cF1MM8G/IMG-20260927-160155-858.jpg">
+<img src="https://i.ibb.co/Tx3hWmG3/IMG-20260927-160156-469.jpg">
+<img src="https://i.ibb.co/6M8FWXb/IMG-20260927-160156-237.jpg">
+<img src="https://i.ibb.co/RmZgVyx/IMG-20260927-160155-804.jpg">
+<img src="https://i.ibb.co/YFh2KBNp/IMG-20260927-160156-172.jpg">
+<img src="https://i.ibb.co/pBdRPH63/IMG-20260927-160155-991.jpg">
+
+</div>
+
+<h3>Featured Ethnic Collection</h3>
+<p>Beautiful traditional ethnic wear.</p>
+<p class="price">Price on Request</p>
+
+<button class="order-btn cod"
+onclick="openOrder('Featured Ethnic Collection','Price on Request')">
+📦 Order with COD
+</button>
+
+</div>
+
+
+<!-- PRODUCT 2 -->
+
+<div class="product-card">
+
+<div class="gallery">
+
+<img src="https://i.ibb.co/LdQqFLJs/IMG-20260927-160147-980.jpg">
+<img src="https://i.ibb.co/Jwt677jK/IMG-20260927-160147-635.jpg">
+<img src="https://i.ibb.co/Rk6Yxbg0/IMG-20260927-160147-802.jpg">
+<img src="https://i.ibb.co/XrvYDZ90/IMG-20260927-160147-889.jpg">
+<img src="https://i.ibb.co/Zpc483Vn/IMG-20260927-160147-933.jpg">
+<img src="https://i.ibb.co/QF14VGLG/IMG-20260927-160147-144.jpg">
+<img src="https://i.ibb.co/8LG8kyn5/IMG-20260927-160147-314.jpg">
+<img src="https://i.ibb.co/yFkqLLxg/IMG-20260927-160147-901.jpg">
+<img src="https://i.ibb.co/X6J3ncy/IMG-20260927-160148-002.jpg">
+<img src="https://i.ibb.co/vvJKNfCb/IMG-20260927-160147-819.jpg">
+
+</div>
+
+<h3>Navratri Denim Set</h3>
+<p>Code: RR-61</p>
+<p>Kediya + Jeans<br>
+Faux Georgette + Pure Cotton Denim<br>
+Real Mirror Work<br>
+Sizes: M, L, XL, XXL</p>
+
+<p class="price">₹1,550</p>
+<p class="online-price">Online Payment: ₹1,240</p>
+
+<div class="info">
+📦 COD: ₹200 Advance + ₹99 Delivery<br>
+💳 Online: 20% OFF + Free Delivery
+</div>
+
+<button class="order-btn cod"
+onclick="openOrder('Navratri Denim Set','1550')">
+📦 Order COD
+</button>
+
+<button class="order-btn online"
+onclick="openOrder('Navratri Denim Set','1240')">
+💳 Pay Online - 20% OFF
+</button>
+
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div class="product-card">
+
+<div class="gallery">
+
+<img src="https://i.ibb.co/YTwkwHB4/IMG-20260927-160134-839.jpg">
+<img src="https://i.ibb.co/vx4DH3Vj/IMG-20260927-160135-257.jpg">
+<img src="https://i.ibb.co/zWQYKdKp/IMG-20260927-160135-546.jpg">
+<img src="https://i.ibb.co/PZRmZvTF/IMG-20260927-160134-825.jpg">
+<img src="https://i.ibb.co/svyXGRg9/IMG-20260927-160135-328.jpg">
+<img src="https://i.ibb.co/Q3M8nszT/IMG-20260927-160135-603.jpg">
+
+</div>
+
+<h3>ZF-5022 Ethnic Wear</h3>
+
+<p>
+Heavy Crunchy Silk<br>
+Jacquard Butti<br>
+Sharara Palazzo<br>
+Ready to Wear<br>
+Sizes: M, L, XL, XXL
+</p>
+
+<p class="price">₹1,000</p>
+<p class="online-price">Online Payment: ₹800</p>
+
+<div class="info">
+📦 COD: ₹200 Advance + ₹99 Delivery<br>
+💳 Online: 20% OFF + Free Delivery
+</div>
+
+<button class="order-btn cod"
+onclick="openOrder('ZF-5022 Ethnic Wear','1000')">
+📦 Order COD
+</button>
+
+<button class="order-btn online"
+onclick="openOrder('ZF-5022 Ethnic Wear','800')">
+💳 Pay Online - 20% OFF
+</button>
+
+</div>
+
+
+<!-- PRODUCT 4 -->
+
+<div class="product-card">
+
+<div class="gallery">
+
+<img src="https://i.ibb.co/zVkQVBj9/IMG-20260927-160123-340.jpg">
+<img src="https://i.ibb.co/N2JhSXV2/IMG-20260927-160123-473.jpg">
+<img src="https://i.ibb.co/bM675p3f/IMG-20260927-160122-674.jpg">
+<img src="https://i.ibb.co/jP49gPVq/IMG-20260927-160123-349.jpg">
+<img src="https://i.ibb.co/jZQHhG2S/IMG-20260927-160122-802.jpg">
+<img src="https://i.ibb.co/qLRrcyry/IMG-20260927-160122-777.jpg">
+
+</div>
+
+<h3>NNK1791 Navratri Collection</h3>
+
+<p>
+Pure Rayon Fabric<br>
+Gota Patti Lace<br>
+Pearls & Shell Tassels<br>
+6 Meter Flair<br>
+Lehenga + Blouse + Koti
+</p>
+
+<p class="price">₹2,100</p>
+<p class="online-price">Online Payment: ₹1,680</p>
+
+<div class="info">
+📦 COD: ₹200 Advance + ₹99 Delivery<br>
+💳 Online: 20% OFF + Free Delivery
+</div>
+
+<button class="order-btn cod"
+onclick="openOrder('NNK1791 Navratri Collection','2100')">
+📦 Order COD
+</button>
+
+<button class="order-btn online"
+onclick="openOrder('NNK1791 Navratri Collection','1680')">
+💳 Pay Online - 20% OFF
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ORDER FORM -->
+
+<div class="form-box" id="orderForm">
+
+<h2>🛍️ Complete Your Order</h2>
+
+<p id="selectedProduct"></p>
+
+<input id="customerName" placeholder="Full Name">
+<input id="mobile" placeholder="Mobile Number" type="tel">
+
+<textarea id="address" placeholder="Full Address"></textarea>
+
+<input id="landmark" placeholder="Landmark">
+<input id="pincode" placeholder="Pincode" type="number">
+
+<select id="size">
+<option value="">Select Size</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>XXL</option>
+</select>
+
+<select id="payment">
+<option value="COD">COD - ₹200 Advance + ₹99 Delivery</option>
+<option value="ONLINE">Full Online Payment - 20% OFF + Free Delivery</option>
+</select>
+
+<input id="utr" placeholder="UTR / Transaction ID (Online Payment only)">
+
+<button onclick="sendOrder()">
+📱 Confirm Order on WhatsApp
+</button>
+
+</div>
+
+
+<section id="policy" class="policy">
+
+<h2>🔄 Return Policy</h2>
+
+<p>ZIVARA provides a <b>7-Day Return Policy</b>.</p>
+
+<p>
+Return is applicable only if the product is received
+in a <b>damaged condition</b>.
+</p>
+
+<p>
+Customer should contact ZIVARA within 7 days
+and provide photo/video evidence of damage.
+</p>
+
+</section>
+
+
+<footer id="contact">
+
+<h2>✨ ZIVARA ✨</h2>
+
+<p>Lehenga • Chunari • Ladies Collection</p>
+<p>📱 WhatsApp: 9752923124</p>
+<p>💳 UPI: 9752923124@ybl</p>
+<p>© 2026 ZIVARA. All Rights Reserved.</p>
+
+</footer>
+
+
+<script>
+
+const ADMIN_PASSWORD = "ZIVARA2026";
+const WHATSAPP = "919752923124";
+
+let selectedProduct = "";
+let selectedPrice = "";
+
+function adminLogin(){
+
+let password = prompt("Enter Admin Password");
+
+if(password === ADMIN_PASSWORD){
+
+document.getElementById("adminPanel").style.display="block";
+
+window.scrollTo({
+top:document.getElementById("adminPanel").offsetTop,
+behavior:"smooth"
+});
+
+showAddedProducts();
+
+}else{
+
+alert("Wrong Password!");
+
+}
+
+}
+
+
+function addProduct(){
+
+let name=document.getElementById("pName").value.trim();
+let price=document.getElementById("pPrice").value.trim();
+let description=document.getElementById("pDescription").value.trim();
+let sizes=document.getElementById("pSizes").value.trim();
+let image=document.getElementById("pImage").value.trim();
+
+if(!name || !price || !image){
+
+alert("Product Name, Price aur Image URL zaroori hai.");
+return;
+
+}
+
+let products=JSON.parse(localStorage.getItem("zivaraProducts")) || [];
+
+products.push({
+name:name,
+price:price,
+description:description,
+sizes:sizes,
+image:image
+});
+
+localStorage.setItem("zivaraProducts",JSON.stringify(products));
+
+document.getElementById("pName").value="";
+document.getElementById("pPrice").value="";
+document.getElementById("pDescription").value="";
+document.getElementById("pSizes").value="";
+document.getElementById("pImage").value="";
+
+alert("Product successfully added!");
+
+showAddedProducts();
+loadProducts();
+
+}
+
+
+function showAddedProducts(){
+
+let products=JSON.parse(localStorage.getItem("zivaraProducts")) || [];
+
+let box=document.getElementById("adminProducts");
+
+box.innerHTML="";
+
+products.forEach(function(product,index){
+
+box.innerHTML +=
+
+"<div style='border:1px solid #ddd;padding:10px;margin:8px 0;border-radius:10px;'>" +
+
+"<b>"+product.name+"</b>" +
+
+"<br>₹"+product.price +
+
+"<br><button class='delete-btn' onclick='deleteProduct("+index+")'>Delete</button>" +
+
+"</div>";
+
+});
+
+}
+
+
+function deleteProduct(index){
+
+if(!confirm("Delete this product?")) return;
+
+let products=JSON.parse(localStorage.getItem("zivaraProducts")) || [];
+
+products.splice(index,1);
+
+localStorage.setItem("zivaraProducts",JSON.stringify(products));
+
+showAddedProducts();
+
+loadProducts();
+
+}
+
+
+function loadProducts(){
+
+let products=JSON.parse(localStorage.getItem("zivaraProducts")) || [];
+
+let container=document.getElementById("productContainer");
+
+products.forEach(function(product){
+
+let onlinePrice=Math.round(Number(product.price)*0.80);
+
+container.innerHTML +=
+
+"<div class='product-card'>" +
+
+"<div class='gallery'>" +
+"<img src='"+product.image+"'>" +
+"</div>" +
+
+"<h3>"+product.name+"</h3>" +
+
+"<p>"+product.description+"</p>" +
+
+"<p>Sizes: "+product.sizes+"</p>" +
+
+"<p class='price'>₹"+product.price+"</p>" +
+
+"<p class='online-price'>Online: ₹"+onlinePrice+"</p>" +
+
+"<div class='info'>"+
+"📦 COD: ₹200 Advance + ₹99 Delivery<br>"+
+"💳 Online: 20% OFF + Free Delivery"+
+"</div>" +
+
+"<button class='order-btn cod' onclick=\"openOrder('"+
+product.name+"','"+product.price+"')\">📦 Order COD</button>" +
+
+"<button class='order-btn online' onclick=\"openOrder('"+
+product.name+"','"+onlinePrice+"')\">💳 Pay Online - 20% OFF</button>" +
+
+"</div>";
+
+});
+
+}
+
+
+function openOrder(product,price){
+
+selectedProduct=product;
+selectedPrice=price;
+
+document.getElementById("selectedProduct").innerHTML=
+"<b>Product:</b> "+product+
+"<br><b>Selected Price:</b> ₹"+price;
+
+document.getElementById("orderForm").style.display="block";
+
+window.scrollTo({
+top:document.getElementById("orderForm").offsetTop,
+behavior:"smooth"
+});
+
+}
+
+
+function sendOrder(){
+
+let name=document.getElementById("customerName").value.trim();
+let mobile=document.getElementById("mobile").value.trim();
+let address=document.getElementById("address").value.trim();
+let landmark=document.getElementById("landmark").value.trim();
+let pincode=document.getElementById("pincode").value.trim();
+let size=document.getElementById("size").value;
+let payment=document.getElementById("payment").value;
+let utr=document.getElementById("utr").value.trim();
+
+if(!name || !mobile || !address || !landmark || !pincode || !size){
+
+alert("Please fill all required details.");
+return;
+
+}
+
+if(payment==="ONLINE" && !utr){
+
+alert("Online payment ke baad UTR / Transaction ID enter karein.");
+return;
+
+}
+
+let message=
+
+"🛍️ *NEW ZIVARA ORDER*%0A%0A"+
+
+"*Product:* "+selectedProduct+"%0A"+
+"*Price:* ₹"+selectedPrice+"%0A%0A"+
+
+"*Customer Details*%0A"+
+"Name: "+name+"%0A"+
+"Mobile: "+mobile+"%0A"+
+"Address: "+address+"%0A"+
+"Landmark: "+landmark+"%0A"+
+"Pincode: "+pincode+"%0A"+
+"Size: "+size+"%0A%0A"+
+
+"*Payment:* "+payment+"%0A";
+
+if(payment==="COD"){
+
+message+=
+"COD Advance: ₹200%0A"+
+"Delivery Charge: ₹99%0A"+
+"Remaining amount at delivery.%0A";
+
+}else{
+
+message+=
+"Online Payment: 20% OFF%0A"+
+"Delivery: FREE%0A"+
+"UTR / Transaction ID: "+utr+"%0A";
+
+}
+
+message+="%0AThank you for shopping with ZIVARA ❤️";
+
+window.open(
+"https://wa.me/"+WHATSAPP+"?text="+message,
+"_blank"
+);
+
+}
+
+loadProducts();
+
+</script>
+
+</body>
+  </html>
